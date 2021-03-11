@@ -1,0 +1,49 @@
+% File: wikipedia-edit.tex
+% Author: Lucas Braune
+
+% This file contains an edit of the following section of an article in Wikipedia:
+%   https://en.wikipedia.org/wiki/Legendre_transformation#Legendre_transformation_on_manifolds
+
+% To convert this LaTeX document into the MediaWiki format, run 
+%   pandoc -f latex -t mediawiki edit.tex -o edit.wiki
+% To install pandoc tool on MacOS using Homebrew, run `brew install pandoc`.
+
+% Insert the following reference where appropriate in the generated Mediawiki file:
+%   <ref name="LSG">Ana Cannas da Silva. ''Lectures on Symplectic Geometry'', Corrected 2nd printing. Springer-Verlag, 2008. pp. 147-148. {{ISBN|978-3-540-42195-5}}.</ref>
+
+\documentclass{article}
+
+\usepackage{amsmath}
+
+\providecommand{\R}{\mathbf R}
+\providecommand{\F}{\mathbf F}
+
+\begin{document}
+
+\section*{Legendre transformation on manifolds}
+
+Let $M$ be a smooth manifold, let $\pi : E\to M$ be a vector bundle, and let $L : E\to \R$ be a smooth function.
+We think of $L$ as a ``Lagrangian'' by analogy with the classical case where $M = \R$, $E = TM = \R\times \R$ and $L(x,v) = \frac 1 2 m v^2 - V(x)$ for some positive number $m\in \R$ and some function $V : M \to \R$.
+As usual, we denote by $E_x$ the fiber of $\pi$ over a point $x\in M$, and by $E^*$ the dual of $E$.
+The \emph{Legendre transformation} of $L$ is the smooth morphism
+$$\F L : E \to E^*$$
+defined by 
+$L(v) = d(L|_{E_x})(v) \in E_x^*$,
+where $x = \pi(v)$.
+In other words, $\F L(v)\in E_x^*$ is the covector that sends $w\in E_x$ to the directional derivative $\left.\frac d {dt}\right|_{t=0} L(v + tw)$.
+
+To describe the Legendre transformation locally, let $U\subseteq M$ be a coordinate chart over which $E$ is trivial.
+Picking a trivialization of $E$ over $U$, we obtain charts $E_U \cong U \times \R^r$ and $E_U^* \cong U \times \R^r$.
+In terms of these charts, we have $\mathbf L F(x; v_1,\dotsc, v_r) = (x; p_1,\dotsc, p_r)$, where
+$$p_i = \frac {\partial L}{\partial v_i}(x,v)$$
+for all $i=1,\dots, r$.
+
+If, as in the classical case, the restriction of $L : E\to \R$ to each fiber $E_x$ is strictly convex and bounded below by a positive definite quadratic form minus a constant, then the Legendre transform $\F L : E\to E^*$ is a diffeomorphism.
+Suppose that $\F L$ is a diffeomorphism and let $H : E^* \to \R$ be the ``Hamiltonian'' function defined by
+$$H(p) = p \cdot v - L(v)$$
+for all $p\in E^*$, where $v = (\F L)^{-1}(p)$.
+Using the natural isomorphism $E\cong E^{**}$, we may view the Legendre transformation of $H$ as a map $\F H : E^* \to E$.
+Then we have
+$$(\F L)^{-1} = \F H.$$
+
+\end{document}
